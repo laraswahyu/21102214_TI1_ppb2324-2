@@ -22,7 +22,6 @@ class _MainPageState extends State<MainPage> {
     HomePage(),
     PortofolioPage(),
     SupportPage(),
-    SupportPage(),
     ProfilePage(),
   ];
 

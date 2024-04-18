@@ -1,6 +1,8 @@
 import 'dart:ui';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:percent_indicator/percent_indicator.dart';
@@ -55,7 +57,7 @@ class HomePage extends StatelessWidget {
                               Radius.circular(10),
                             ),
                             image: DecorationImage(
-                              image: AssetImage('assets/user-img.JPG'),
+                              image: AssetImage('assets/user-img.jpeg'),
                               fit: BoxFit.cover,
                             ),
                             boxShadow: [
@@ -137,8 +139,134 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             ),
+            Container(
+              margin: EdgeInsets.only(top: 200),
+              child: DraggableScrollableSheet(
+                builder: (context, ScrollController) {
+                  return Container(
+                    decoration: BoxDecoration(
+                      color: kWhite,
+                      borderRadius: BorderRadius.vertical(
+                        top: Radius.circular(40),
+                      ),
+                    ),
+                    padding: const EdgeInsets.only(
+                      left: 30,
+                      right: 30,
+                      top: 21,
+                    ),
+                    child: Stack(
+                      children: [
+                        Container(
+                          margin: EdgeInsets.only(top: 14 + 4),
+                          child: SingleChildScrollView(
+                            controller: ScrollController,
+                            child: Column(
+                              children: [
+                                Center(
+                                  child: Text(
+                                    'Transactions History',
+                                    style: kHeading6.copyWith(
+                                      color: kLuckyBlue,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 31,
+                                ),
+                                _ListTransaction(
+                                  kTreeGreen.withOpacity(0.2),
+                                  'assets/triangle-up.png',
+                                  'Success!',
+                                  'February 19, 03:25 PM',
+                                  '+100.000',
+                                ),
+                                _ListTransaction(
+                                  kTreeGreen.withOpacity(0.2),
+                                  'assets/triangle-up.png',
+                                  'Success!',
+                                  'February 16, 01:25 PM',
+                                  '+150.000',
+                                ),
+                                _ListTransaction(
+                                  kOrange.withOpacity(0.2),
+                                  'assets/triangle-down.png',
+                                  'Starbucks Drinks',
+                                  'February 10, 12:25 PM',
+                                  '-110.000',
+                                ),
+                                _ListTransaction(
+                                  kOrange.withOpacity(0.2),
+                                  'assets/triangle-down.png',
+                                  'Payment #Invest',
+                                  'February 5, 11:05 PM',
+                                  '-130.000',
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment.topCenter,
+                          child: Container(
+                            height: 4,
+                            width: 49,
+                            color: kEgyptianBlue.withOpacity(0.1),
+                          ),
+                        )
+                      ],
+                    ),
+                  );
+                },
+              ),
+            ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _ListTransaction(
+      Color bgColor, String icon, String title, String sub, String amount) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 30),
+      child: Row(
+        children: [
+          SizedBox(
+            height: 30,
+            width: 30,
+            child: CircleAvatar(
+              backgroundColor: bgColor,
+              child: Image(
+                image: AssetImage(icon),
+                width: 14,
+              ),
+            ),
+          ),
+          SizedBox(
+            width: 10,
+          ),
+          Column(
+            children: [
+              Text(
+                title,
+                style: kBody1.copyWith(color: kLuckyBlue),
+              ),
+              Text(
+                sub,
+                style: kCaption.copyWith(
+                  color: kLuckyBlue,
+                ),
+              )
+            ],
+          ),
+          Spacer(),
+          Text(
+            amount,
+            style: kBody1.copyWith(color: kLuckyBlue),
+          )
+        ],
       ),
     );
   }
