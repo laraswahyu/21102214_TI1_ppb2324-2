@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => RegisterCubit())
       ],
       child: MaterialApp(
-          title: "Tubes Unique",
+          title: "Pertemuan CRUD",
           debugShowCheckedModeBanner: false,
           navigatorKey: NAV_KEY,
           onGenerateRoute: generateRoute,
