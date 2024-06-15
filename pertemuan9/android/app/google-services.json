@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "621096230849",
+    "project_id": "praktikum-laras",
+    "storage_bucket": "praktikum-laras.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:621096230849:android:fbcf16b37fea8173685940",
+        "android_client_info": {
+          "package_name": "com.example.pertemuan9"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4wFnEu-oMtWuyparUeiAjNgf6hhCJppI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
